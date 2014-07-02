@@ -9,7 +9,7 @@ module RoyalMail
 
     def self.resolve(message)
       case message
-      when /^(ACCEPTED|RECEIVED|DESPATCHABLE|COLLECTED)/
+      when /^(ACCEPTED|RECEIVED|DESPATCHABLE|DESPATCHED|COLLECTED)/
         IN_TRANSIT
       when /^ON DELIVERY/
         ON_DELIVERY
