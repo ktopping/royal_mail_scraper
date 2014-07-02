@@ -1,0 +1,66 @@
+require 'spec_helper'
+
+describe RoyalMail::Tracker do
+  describe '.fetch' do
+    let(:tracking_number) { 'KF000000000GB' }
+    let(:html) { File.binread(File.dirname(__FILE__) + '/assets/' + file) }
+    let(:http_response) { double(body: html) }
+
+    before { expect_any_instance_of(Net::HTTP).to receive(:request).and_return(http_response) }
+
+    subject(:tracker) { described_class.fetch(tracking_number) }
+
+    shared_examples 'tracker with details' do
+      it 'contains correct detail statuses' do
+        expect(tracker).to be_instance_of(described_class)
+        expect(tracker.tracking_number).to eq tracking_number
+        expect(tracker.details.map(&:status)).to eq expected_statuses
+        expect(tracker.status).to eq expected_statuses.last
+        expect(tracker.datetime).to eq tracker.details.last.datetime if tracker.details.any?
+        expect(tracker.message).to eq tracker.details.last.message if tracker.details.any?
+        expect(tracker.location).to eq tracker.details.last.location if tracker.details.any?
+      end
+    end
+
+    context 'collected' do
+      let(:file) { 'collected.html' }
+
+      let(:expected_statuses) do
+        ["in_transit", "undelivered", "held_at_enquiry_office", "in_transit"]
+      end
+
+      it_behaves_like 'tracker with details'
+    end
+
+    context 'delivered' do
+      let(:file) { 'delivered.html' }
+
+      let(:expected_statuses) do
+        ["in_transit", "in_transit", "in_transit", "in_transit", "in_transit", "in_transit",
+         "on_delivery", "delivered", "delivered"]
+      end
+
+      it_behaves_like 'tracker with details'
+    end
+
+    context 'on delivery' do
+      let(:file) { 'on_delivery.html' }
+
+      let(:expected_statuses) do
+        ["in_transit", "undelivered", "held_at_enquiry_office", "on_delivery"]
+      end
+
+      it_behaves_like 'tracker with details'
+      end
+
+    context 'not found' do
+      let(:file) { 'not_found.html' }
+
+      let(:expected_statuses) do
+        []
+      end
+
+      it_behaves_like 'tracker with details'
+    end
+  end
+end
