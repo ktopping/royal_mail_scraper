@@ -1,5 +1,7 @@
 # RoyalMail
 
+[![Build Status](https://secure.travis-ci.org/laurynas/royal_mail.png)](http://travis-ci.org/laurynas/royal_mail)
+
 A simple page scraper for Royal Mail Track and Trace because Royal Mail don't provide any APIs.
 
 ## Installation
@@ -34,5 +36,7 @@ Or install it yourself as:
 
 ## Credits
 
-This GEM is inspired by PHP-Royal-Mail-Track-and-Trace script
-https://github.com/roldershaw/PHP-Royal-Mail-Track-and-Trace
+This GEM is originally inspired by 
+[PHP-Royal-Mail-Track-and-Trace](https://github.com/roldershaw/PHP-Royal-Mail-Track-and-Trace) script
+
+
