@@ -22,6 +22,10 @@ module RoyalMail
       last_detail.location if last_detail
     end
 
+    def recognised_details
+      details.select { |detail| detail.status != StatusMap::UNRECOGNISED }
+    end
+
     private
 
     def last_detail

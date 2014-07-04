@@ -13,6 +13,7 @@ describe RoyalMail::Tracker do
         expect(tracker.datetime).to eq tracker.details.last.datetime if tracker.details.any?
         expect(tracker.message).to eq tracker.details.last.message if tracker.details.any?
         expect(tracker.location).to eq tracker.details.last.location if tracker.details.any?
+        expect(tracker.recognised_details).not_to be_empty if tracker.details.any?
       end
     end
 
