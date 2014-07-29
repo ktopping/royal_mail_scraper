@@ -1,6 +1,6 @@
 require 'net/http'
 
-module RoyalMail
+module RoyalMailScraper
   class Tracker::Request < Struct.new(:tracking_number)
     REQUEST_URI = URI('http://www.royalmail.com/trackdetails')
     TIMEOUT = 10

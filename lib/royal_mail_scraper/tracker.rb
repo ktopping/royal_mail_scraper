@@ -1,4 +1,4 @@
-module RoyalMail
+module RoyalMailScraper
   class Tracker < Struct.new(:tracking_number, :details)
     def self.fetch(tracking_number)
       request = Request.new(tracking_number)

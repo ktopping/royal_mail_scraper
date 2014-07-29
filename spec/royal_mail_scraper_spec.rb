@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RoyalMail do
+describe RoyalMailScraper do
   describe '.tracking_number?' do
     let(:examples) do
       {
@@ -13,7 +13,7 @@ describe RoyalMail do
 
     specify do
       examples.each do |tracking_number, expected_result|
-        expect(RoyalMail.tracking_number?(tracking_number)).to be(expected_result)
+        expect(RoyalMailScraper.tracking_number?(tracking_number)).to be(expected_result)
       end
     end
   end

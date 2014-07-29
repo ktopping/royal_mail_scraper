@@ -1,6 +1,6 @@
-# RoyalMail
+# RoyalMailScraper
 
-[![Build Status](https://secure.travis-ci.org/laurynas/royal_mail.png)](http://travis-ci.org/laurynas/royal_mail)
+[![Build Status](https://secure.travis-ci.org/laurynas/royal_mail_scraper.png)](http://travis-ci.org/laurynas/royal_mail_scraper)
 
 A simple page scraper for Royal Mail Track and Trace.
 
@@ -8,7 +8,7 @@ A simple page scraper for Royal Mail Track and Trace.
 
 Add this line to your application's Gemfile:
 
-    gem 'royal_mail'
+    gem 'royal_mail_scraper'
 
 And then execute:
 
@@ -16,11 +16,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install royal_mail
+    $ gem install royal_mail_scraper
 
 ## Usage
 
-    tracker = RoyalMail::Tracker.fetch('TRACKING_CODE')
+    tracker = RoyalMailScraper::Tracker.fetch('TRACKING_CODE')
 
     p tracker.status
     p tracker.message

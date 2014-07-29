@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RoyalMail::Tracker do
+describe RoyalMailScraper::Tracker do
   describe '.fetch' do
     subject(:tracker) { described_class.fetch(tracking_number) }
 

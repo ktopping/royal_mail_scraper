@@ -1,4 +1,4 @@
-module RoyalMail
+module RoyalMailScraper
   class Tracker::Detail
     attr_reader :datetime, :message, :location, :status
 

@@ -1,4 +1,4 @@
-module RoyalMail
+module RoyalMailScraper
   class Tracker::StatusMap
     UNRECOGNISED = 'unrecognised'
     IN_TRANSIT = 'in_transit'

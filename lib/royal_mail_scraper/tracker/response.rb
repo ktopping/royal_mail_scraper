@@ -1,6 +1,6 @@
 require 'nokogiri'
 
-module RoyalMail
+module RoyalMailScraper
   class Tracker::Response
     attr_reader :html
 
