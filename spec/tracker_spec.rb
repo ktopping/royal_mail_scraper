@@ -20,7 +20,7 @@ describe RoyalMail::Tracker do
     context 'with real response' do
       let(:tracking_number) { 'RU401513974GB' }
       let(:expected_statuses) do
-        ["in_transit", "in_transit", "in_transit", "in_transit", "delivered"]
+        ["in_transit", "in_transit", "in_transit", "delivered"]
       end
 
       it_behaves_like 'tracker with details'
@@ -41,6 +41,8 @@ describe RoyalMail::Tracker do
         end
 
         it_behaves_like 'tracker with details'
+
+        its('datetime.to_s') { should eq '2014-07-02T13:28:00+00:00' }
       end
 
       context 'delivered' do

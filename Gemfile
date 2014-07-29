@@ -7,5 +7,6 @@ gem 'nokogiri', '~> 1.5'
 
 group :test do
   gem 'rspec'
+  gem 'rspec-its'
   gem 'pry'
 end
