@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in royal_mail.gemspec
 gemspec
 
-gem 'nokogiri', '~> 1.5'
+gem 'mechanize', '~> 2.7'
 
 group :test do
   gem 'rspec'

@@ -29,9 +29,13 @@ describe RoyalMailScraper::Tracker do
     context 'with mocked response' do
       let(:tracking_number) { 'KF000000000GB' }
       let(:html) { File.binread(File.dirname(__FILE__) + '/assets/' + file) }
-      let(:http_response) { double(body: html) }
+      let(:page) { Mechanize::Page.new(URI('http://test'), nil, html) }
 
-      before { expect_any_instance_of(Net::HTTP).to receive(:request).and_return(http_response) }
+      before do
+        expect_any_instance_of(RoyalMailScraper::Tracker::Request).to(
+          receive(:fetch_details_page).and_return(page)
+        )
+      end
 
       context 'collected' do
         let(:file) { 'collected.html' }

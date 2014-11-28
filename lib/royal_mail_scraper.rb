@@ -1,5 +1,6 @@
 require "royal_mail_scraper/version"
 require "royal_mail_scraper/tracker"
+require "royal_mail_scraper/tracker/errors"
 require "royal_mail_scraper/tracker/request"
 require "royal_mail_scraper/tracker/response"
 require "royal_mail_scraper/tracker/detail"
