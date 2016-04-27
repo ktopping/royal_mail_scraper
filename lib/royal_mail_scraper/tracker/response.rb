@@ -4,8 +4,7 @@ module RoyalMailScraper
   class Tracker::Response
     attr_reader :html
 
-    DETAILS_PATH = '//*[@id="bt-tracked-track-trace-form"]/div/div/div/div[1]/table/tbody/tr'
-    ERROR_PATH = '//*[@id="bt-tracked-track-trace-form"]/div/div/div/div[1]/div[5]/text()'
+    DETAILS_PATH = '//div[@class="tracking_details_table_block"]//table[1]/tbody/tr'
 
     TIME_FORMAT = '%d/%m/%y %H:%M'
 

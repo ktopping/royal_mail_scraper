@@ -2,7 +2,7 @@ require 'mechanize'
 
 module RoyalMailScraper
   class Tracker::Request < Struct.new(:tracking_number)
-    REQUEST_URI = URI('http://www.royalmail.com/trackdetails')
+    REQUEST_URI = URI('https://www.royalmail.com/track-your-item')
     TIMEOUT = 10
     RETRIES_ON_ERROR = 7
 
@@ -33,7 +33,7 @@ module RoyalMailScraper
     end
 
     def find_form(page)
-      page.form_with(id: 'bt-tracked-track-trace-form') ||
+      page.form_with(id: 'rml-track-trace-search-form') ||
         raise(Error, 'Tracking code form not found')
     end
 
